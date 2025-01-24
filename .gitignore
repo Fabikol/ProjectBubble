@@ -30,6 +30,7 @@ sysinfo.txt
 .LSOverride
 
 .vs/
+.idea/
 
 # Thumbnails
 ._*
