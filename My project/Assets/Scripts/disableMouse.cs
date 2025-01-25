@@ -14,4 +14,9 @@ public class disableMouse : MonoBehaviour
     {
         
     }
+
+    void OnExit()
+    {
+        Application.Quit();
+    }
 }
