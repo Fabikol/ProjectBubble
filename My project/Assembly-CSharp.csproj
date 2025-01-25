@@ -64,12 +64,12 @@
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\EnemeyInteractions.cs" />
     <Compile Include="Assets\Items\DebugItem.cs" />
+    <Compile Include="Assets\Items\PlayerStats.cs" />
     <Compile Include="Assets\Items\ItemSciptableObject.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Items\IItem.cs" />
     <Compile Include="Assets\Player\PlayerInventory.cs" />
     <Compile Include="Assets\Items\ItemBox.cs" />
-    <Compile Include="Assets\PlayerStats.cs" />
     <Compile Include="Assets\Items\Item.cs" />
   </ItemGroup>
   <ItemGroup>
