@@ -1,3 +1,6 @@
+using System;
+using System.Net;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -13,6 +16,8 @@ public class PlayerControl : MonoBehaviour
     private Vector2 moveInputValue;
     private bool attackPressed=false;
 
+    private bool isOnGround = false;
+
     private void OnMove(InputValue value)
     {
         moveInputValue = value.Get<Vector2>();
@@ -20,7 +25,7 @@ public class PlayerControl : MonoBehaviour
 
     private void OnJump(InputValue value)
     {
-        if (rb.linearVelocity.y == 0)
+        if (isOnGround)
         {
             rb.linearVelocity += Vector3.up * jumpForce;
         }
@@ -28,7 +33,7 @@ public class PlayerControl : MonoBehaviour
 
     private void OnAttack(InputValue value)
     {
-        Debug.Log("Attack");
+        //Debug.Log("Attack");
         attackPressed = true;
     }
 
@@ -50,10 +55,31 @@ public class PlayerControl : MonoBehaviour
                 rb.AddForce(dashDirection.normalized * dashForce, ForceMode.VelocityChange);
             }
         }
+        else
+        {
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x * 0.9f, rb.linearVelocity.y, rb.linearVelocity.z * 0.9f);
+        }
     }
 
     private void FixedUpdate()
     {
         MoveLogic();
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("world"))
+        {
+            //Debug.Log("Boden");
+            isOnGround = true;
+        }
+    }
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.layer==LayerMask.NameToLayer("world"))
+        {
+            //Debug.Log("Luft");
+            isOnGround = false;
+        }
     }
 }
