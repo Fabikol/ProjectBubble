@@ -68,3 +68,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 /My project/Logs
+My project/UserSettings/Layouts/CurrentMaximizeLayout.dwlt
+/My project/UserSettings
