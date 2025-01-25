@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 6306218426786739412}
   - component: {fileID: 2421388073539267351}
   - component: {fileID: 4926710072306036542}
-  - component: {fileID: 7091133594627274100}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -33,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 8013158511976084}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.6552587, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54,7 +53,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8013158511976084}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -129,6 +128,7 @@ MonoBehaviour:
   acceleration: 10
   maxSpeed: 50
   jumpForce: 4
+  dashForce: 20
 --- !u!54 &6306218426786739412
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -198,18 +198,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d9fa691d4664fa48f4cb4f6f66533e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7091133594627274100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8013158511976084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48fb8ed9e66283418a9d1a9a24fc4cdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wobbleIntensity: 0.1
-  wobbleSpeed: 2
-  wobbleAmount: 0.1
