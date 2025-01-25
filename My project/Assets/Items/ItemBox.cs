@@ -4,8 +4,7 @@ public class ItemBox : MonoBehaviour
 {
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
+        
             Debug.Log("Player collided with Itembox");
             PlayerInventory inventory = other.GetComponent<PlayerInventory>();
             if (inventory != null)
@@ -15,7 +14,7 @@ public class ItemBox : MonoBehaviour
                 Destroy(gameObject);
             }
 
-        }
+        
         
     }
 }

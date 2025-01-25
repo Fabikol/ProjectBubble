@@ -6,13 +6,16 @@ public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float acceleration = 10f;
-    [SerializeField] private float maxSpeed = 100f;
+    [SerializeField] public float maxSpeed = 100f;
     [SerializeField] private float jumpForce = 50f;
-    
+
+   
+
     private Vector2 moveInputValue;
 
     private void OnMove(InputValue value)
     {
+        
         moveInputValue = value.Get<Vector2>();
     }
 
@@ -39,5 +42,11 @@ public class PlayerControl : MonoBehaviour
     private void FixedUpdate()
     {
         MoveLogic();
+        
+    }
+
+    public void Respawn(Transform Respawnpoint) 
+    {
+        transform.position = Respawnpoint.position;
     }
 }

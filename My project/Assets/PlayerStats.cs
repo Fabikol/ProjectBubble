@@ -5,17 +5,23 @@ public class PlayerStats : MonoBehaviour
 {
     private Dictionary<string, float> statModifiers = new Dictionary<string, float>();
 
-    public float maxSpeed = 10f; // Default value
+    public PlayerControl playerControl;
+
+    private void Awake()
+    {
+        playerControl = GetComponent<PlayerControl>();
+        if (playerControl == null)
+            Debug.LogError("PlayerControl component is missing.");
+    }
 
     private void Start()
     {
-        // Initialize base stats
-        statModifiers["maxSpeed"] = maxSpeed;
+        statModifiers["maxSpeed"] = playerControl.maxSpeed; // Initialize with actual maxSpeed
     }
 
     public void Update()
     {
-        Debug.Log("current maxSpeed" + maxSpeed);
+        
     }
 
     public void ApplyModifier(string statName, float multiplier)
@@ -26,18 +32,26 @@ public class PlayerStats : MonoBehaviour
             return;
         }
 
-        // Modify and apply the stat
         statModifiers[statName] *= multiplier;
 
         switch (statName)
         {
             case "maxSpeed":
-                maxSpeed = statModifiers[statName];
+                if (playerControl != null) 
+                {
+                    playerControl.maxSpeed = statModifiers[statName];
+                    Debug.Log($"maxSpeed changed to {playerControl.maxSpeed}");
+                }
+                else
+                {
+                    Debug.LogError("PlayerControl reference is missing!");
+                }
                 break;
             default:
                 Debug.LogWarning($"Stat {statName} is not mapped in PlayerStats.");
                 break;
         }
     }
+
 }
 
