@@ -15,6 +15,8 @@ public class PlayerControl : MonoBehaviour
     
     private Vector2 moveInputValue;
     private bool attackPressed=false;
+    
+    public Transform cameraTransform;
 
     private bool isOnGround = false;
 
@@ -40,12 +42,19 @@ public class PlayerControl : MonoBehaviour
     private void MoveLogic()
     {
         
-        Vector2 result = moveInputValue * acceleration * Time.fixedDeltaTime;
-        if (result != Vector2.zero)
+        Vector3 result = new Vector3(moveInputValue.x, 0f, moveInputValue.y) * acceleration * Time.fixedDeltaTime;
+        
+        
+        
+        if (result != Vector3.zero)
         {
-            float speed = new Vector2(rb.linearVelocity.x, rb.linearVelocity.z).magnitude + result.magnitude;
+            float targetAngle = Mathf.Atan2(result.x, result.z) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
+            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+            
+            float speed = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z).magnitude + result.magnitude;
             float fallSpeed = rb.linearVelocity.y;
-            rb.linearVelocity = new Vector3(result.x, 0, result.y).normalized * speed + new Vector3(0, fallSpeed, 0);
+            Vector3 moveDir = Quaternion.Euler(0f,targetAngle,0f) * Vector3.forward;
+            rb.linearVelocity = moveDir * speed + new Vector3(0, fallSpeed, 0);
             
             if (attackPressed)
             {
