@@ -26,11 +26,13 @@ public class PlayerControl : MonoBehaviour
 
     private void MoveLogic()
     {
+        
         Vector2 result = moveInputValue * acceleration * Time.fixedDeltaTime;
-        rb.linearVelocity += new Vector3(result.x, 0, result.y);
-        if (((rb.linearVelocity + new Vector3(result.x, 0, result.y)).magnitude > maxSpeed))
+        if (result != Vector2.zero)
         {
-            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
+            float speed = new Vector2(rb.linearVelocity.x, rb.linearVelocity.z).magnitude + result.magnitude;
+            float fallSpeed = rb.linearVelocity.y;
+            rb.linearVelocity = new Vector3(result.x, 0, result.y).normalized * speed + new Vector3(0, fallSpeed, 0);
         }
     }
 
