@@ -35,6 +35,15 @@ public class PlayerControl : MonoBehaviour
         moveInputValue = value.Get<Vector2>();
     }
 
+    public float Size
+    {
+        get{return gameObject.transform.localScale.x;}
+        set
+        {
+            gameObject.transform.localScale = new Vector3(value, value, value);
+        }
+    }
+
     private bool OnSlope()
     {
         if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f, LayerMask.GetMask("world")))
