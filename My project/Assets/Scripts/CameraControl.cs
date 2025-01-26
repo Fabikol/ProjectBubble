@@ -33,6 +33,10 @@ public class CameraControl : MonoBehaviour
     private void OnLook(InputValue value)
     {
         moveInputValue = value.Get<Vector2>();
+    }
+
+    private void UpdateCameraPosition()
+    {
 
         // Update yaw and pitch based on input and rotation speed
         currentYaw += moveInputValue.x * rotationSpeed * Time.deltaTime;
@@ -40,10 +44,7 @@ public class CameraControl : MonoBehaviour
 
         // Clamp the pitch to stay within the allowed vertical range
         currentPitch = Mathf.Clamp(currentPitch, verticalMinAngle, verticalMaxAngle);
-    }
-
-    private void UpdateCameraPosition()
-    {
+        
         // Calculate the new position and rotation of the camera
         Quaternion rotation = Quaternion.Euler(currentPitch, currentYaw, 0);
         Vector3 positionOffset = rotation * new Vector3(0, 0, -distance);
