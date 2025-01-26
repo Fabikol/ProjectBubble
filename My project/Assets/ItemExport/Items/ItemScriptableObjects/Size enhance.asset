@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbc85186f09bd04bb9e803356a772ee, type: 3}
   m_Name: Size enhance
   m_EditorClassIdentifier: 
-  name: Big One
+  name: size
   description: Increases Size
   statToModify: size
   multiplier: 5
