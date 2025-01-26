@@ -59,6 +59,7 @@ public class PlayerStats : MonoBehaviour
                 {
                     Debug.Log("Teleport item choosen");
                     playerControl.Respawn();
+                    FindObjectOfType<AudioManager>().Play("Teleport");
                 }
                 break;
 

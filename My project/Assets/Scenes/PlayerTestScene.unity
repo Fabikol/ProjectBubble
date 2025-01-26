@@ -7661,7 +7661,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1650474365}
   - component: {fileID: 1650474364}
-  - component: {fileID: 1650474363}
+  - component: {fileID: 1650474366}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -7669,25 +7669,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1650474363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1650474362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ce5f217b7f7f141909c10e1aaf770f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Theme
-    clip: {fileID: 8300000, guid: 3b8ace1d13709024ab73440fedc38de5, type: 3}
-    volume: 0.395
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
 --- !u!81 &1650474364
 AudioListener:
   m_ObjectHideFlags: 0
@@ -7711,6 +7692,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1650474366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650474362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ce5f217b7f7f141909c10e1aaf770f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Theme
+    clip: {fileID: 8300000, guid: 3b8ace1d13709024ab73440fedc38de5, type: 3}
+    volume: 0.485
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Teleport
+    clip: {fileID: 8300000, guid: 26572371fa351c54687f46653c6536fc, type: 3}
+    volume: 0.485
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &1651871456 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7640558969779515294, guid: f6b1fe9d9ed2cde479b2198e31a8c891, type: 3}
