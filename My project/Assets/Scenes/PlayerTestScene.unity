@@ -169,11 +169,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3195633141748607467, guid: 0071798fdb42f41aca98060de37efbec, type: 3}
       propertyPath: rotationSpeed
-      value: 30
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4724311349823375561, guid: 0071798fdb42f41aca98060de37efbec, type: 3}
       propertyPath: m_DefaultControlScheme
       value: Gamepad
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847907724498378531, guid: 0071798fdb42f41aca98060de37efbec, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7512049051162716778, guid: 0071798fdb42f41aca98060de37efbec, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
@@ -696,6 +700,10 @@ PrefabInstance:
     - target: {fileID: 249416526792614998, guid: 0071798fdb42f41aca98060de37efbec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847907724498378531, guid: 0071798fdb42f41aca98060de37efbec, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8689381191064715207, guid: 0071798fdb42f41aca98060de37efbec, type: 3}
       propertyPath: m_Name
