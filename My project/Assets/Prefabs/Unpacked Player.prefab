@@ -1123,7 +1123,6 @@ GameObject:
   - component: {fileID: 6066910748281476778}
   - component: {fileID: 6441009515880794047}
   - component: {fileID: 571688328726886800}
-  - component: {fileID: 5558114016445666459}
   - component: {fileID: 869681204085149273}
   - component: {fileID: 6571312984160981094}
   - component: {fileID: 4724311349823375561}
@@ -1257,19 +1256,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &5558114016445666459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8689381191064715207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40d9fa691d4664fa48f4cb4f6f66533e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  KnockbackForce: 15
 --- !u!135 &869681204085149273
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1364,6 +1350,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 617128794483597526}
   playerHeight: 0
   maxSlopeAngle: 45
+  KnockbackForce: 15
 --- !u!114 &3195633141748607467
 MonoBehaviour:
   m_ObjectHideFlags: 0

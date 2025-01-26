@@ -26,6 +26,8 @@ public class PlayerControl : MonoBehaviour
     private Vector3 moveDir;
     private bool attackPressed=false;
     private bool jumpPressed = false;
+    
+    public float KnockbackForce;
 
     private void OnMove(InputValue value)
     {
@@ -34,11 +36,13 @@ public class PlayerControl : MonoBehaviour
 
     private bool OnSlope()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f, LayerMask.GetMask("World")))
         {
+            Debug.DrawLine(new Vector3(0, 0, 0), new Vector3(10,10,10), Color.red);
+            Debug.DrawLine (transform.position, slopeHit.point,Color.red, 1000);
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
-            //Debug.Log($"Slope Angle: {angle}");
-            return angle <maxSlopeAngle && angle!=0;
+            Debug.Log($"Slope Angle: {angle}");
+            return angle < maxSlopeAngle;
         }
 
         return false;
@@ -118,7 +122,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("world"))
         {
-            Debug.Log("Boden");
+            //Debug.Log("Boden");
             isOnGround = true;
         }
     }
@@ -126,7 +130,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.gameObject.layer==LayerMask.NameToLayer("world"))
         {
-            Debug.Log("Luft");
+            //Debug.Log("Luft");
             isOnGround = false;
         }
     }
@@ -141,6 +145,17 @@ public class PlayerControl : MonoBehaviour
 
         transform.position = Respawnpoint.transform.position;
         Debug.Log("Player respawned at: " + Respawnpoint.transform.position);
+    }
+    
+    
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Vector3 direction = other.gameObject.transform.position - transform.position;
+            other.gameObject.GetComponent<Rigidbody>().AddForce(direction.normalized*KnockbackForce, ForceMode.VelocityChange);
+        }
     }
 
 }
