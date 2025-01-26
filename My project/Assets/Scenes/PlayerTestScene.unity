@@ -325,13 +325,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8689381191064715207, guid: 0071798fdb42f41aca98060de37efbec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 778371893}
-    - targetCorrespondingSourceObject: {fileID: 8689381191064715207, guid: 0071798fdb42f41aca98060de37efbec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 778371892}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0071798fdb42f41aca98060de37efbec, type: 3}
 --- !u!1 &63050566 stripped
 GameObject:
@@ -4455,40 +4449,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dd31c8529b86ae4798a0f2ff22e1889, type: 3}
---- !u!1 &778371880 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8689381191064715207, guid: 0071798fdb42f41aca98060de37efbec, type: 3}
-  m_PrefabInstance: {fileID: 58160896}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &778371892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 778371880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 348774d455285c547a857d9e207b10dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  availableItems:
-  - {fileID: 11400000, guid: 00d05cf4bf40c2a4688ef7ea70bfbe7f, type: 2}
-  - {fileID: 11400000, guid: 680cd2a606921e94784be76bc28590a2, type: 2}
---- !u!114 &778371893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 778371880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f1a54e55c6a9e54392b9c789d8bf4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerControl: {fileID: 0}
-  Teleportactive: 0
 --- !u!1 &778992026 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5398889914179909290, guid: b438702b126c28441b952629b3f768c3, type: 3}
@@ -11476,6 +11436,10 @@ PrefabInstance:
       propertyPath: Respawnpoint
       value: 
       objectReference: {fileID: 609940987}
+    - target: {fileID: 4724311349823375561, guid: 0071798fdb42f41aca98060de37efbec, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: Keyboard&Mouse
+      objectReference: {fileID: 0}
     - target: {fileID: 8689381191064715207, guid: 0071798fdb42f41aca98060de37efbec, type: 3}
       propertyPath: m_Name
       value: Player

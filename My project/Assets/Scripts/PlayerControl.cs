@@ -17,27 +17,48 @@ public class PlayerControl : MonoBehaviour
     
     public Transform cameraTransform;
 
+    [Header("Slope Handling")] 
+    public float playerHeight;
+    public float maxSlopeAngle = 45f;
+    private RaycastHit slopeHit;
+    
     private Vector2 moveInputValue;
+    private Vector3 moveDir;
     private bool attackPressed=false;
+    private bool jumpPressed = false;
 
     private void OnMove(InputValue value)
     {
-
         moveInputValue = value.Get<Vector2>();
+    }
+
+    private bool OnSlope()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            //Debug.Log($"Slope Angle: {angle}");
+            return angle <maxSlopeAngle && angle!=0;
+        }
+
+        return false;
+    }
+
+    private Vector3 GetSlopeMoveDirection()
+    {
+        return Vector3.ProjectOnPlane(moveDir, slopeHit.normal).normalized;
     }
 
     private void OnJump(InputValue value)
     {
-        if (rb.linearVelocity.y == 0)
-        {
-            rb.linearVelocity += Vector3.up * jumpForce;
-        }
+        jumpPressed = true;
     }
 
     private void MoveLogic()
     {
         
-        Vector3 result = new Vector3(moveInputValue.x, 0f, moveInputValue.y) * acceleration * Time.fixedDeltaTime;
+        Vector3 result = new Vector3(moveInputValue.x, 0f, moveInputValue.y);
+        
         
         
         
@@ -46,15 +67,23 @@ public class PlayerControl : MonoBehaviour
             float targetAngle = Mathf.Atan2(result.x, result.z) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
             transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
             
-            float speed = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z).magnitude + result.magnitude;
-            float fallSpeed = rb.linearVelocity.y;
-            Vector3 moveDir = Quaternion.Euler(0f,targetAngle,0f) * Vector3.forward;
-            rb.linearVelocity = moveDir * speed + new Vector3(0, fallSpeed, 0);
+            moveDir = Quaternion.Euler(0f,targetAngle,0f) * Vector3.forward  * acceleration * Time.fixedDeltaTime;
+
+            
+            if (OnSlope() && new Vector2(rb.linearVelocity.x, rb.linearVelocity.z).magnitude < maxSpeed)
+            {
+                rb.AddForce(GetSlopeMoveDirection() * acceleration, ForceMode.Acceleration);
+            }
+            
+            else if (new Vector2(rb.linearVelocity.x, rb.linearVelocity.z).magnitude < maxSpeed)
+            {
+                rb.AddForce(moveDir * acceleration, ForceMode.Acceleration);
+            }
             
             if (attackPressed)
             {
                 attackPressed = false;
-                Vector3 dashDirection = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
+                Vector3 dashDirection = moveDir;
                 rb.linearVelocity = Vector3.zero;
                 rb.AddForce(dashDirection.normalized * dashForce, ForceMode.VelocityChange);
             }
@@ -62,6 +91,11 @@ public class PlayerControl : MonoBehaviour
         else
         {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x * 0.9f, rb.linearVelocity.y, rb.linearVelocity.z * 0.9f);
+        }
+        if (isOnGround && jumpPressed)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+            jumpPressed = false;
         }
     }
     
@@ -84,7 +118,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("world"))
         {
-            //Debug.Log("Boden");
+            Debug.Log("Boden");
             isOnGround = true;
         }
     }
@@ -92,7 +126,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.gameObject.layer==LayerMask.NameToLayer("world"))
         {
-            //Debug.Log("Luft");
+            Debug.Log("Luft");
             isOnGround = false;
         }
     }

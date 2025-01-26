@@ -901,9 +901,12 @@ MonoBehaviour:
   rb: {fileID: 6792928431485109406}
   acceleration: 10
   maxSpeed: 50
-  jumpForce: 4
+  jumpForce: 9
   dashForce: 20
+  Respawnpoint: {fileID: 0}
   cameraTransform: {fileID: 734140586186508513}
+  playerHeight: 0
+  maxSlopeAngle: 45
 --- !u!114 &8705099385369921777
 MonoBehaviour:
   m_ObjectHideFlags: 0
