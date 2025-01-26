@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemeyInteractions : MonoBehaviour
 {
+    
+    public float KnockbackForce;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,10 +20,10 @@ public class EnemeyInteractions : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             Vector3 direction = other.gameObject.transform.position - transform.position;
-            other.gameObject.GetComponent<Rigidbody>().AddForce(direction.normalized*100);
+            other.gameObject.GetComponent<Rigidbody>().AddForce(direction.normalized*KnockbackForce, ForceMode.VelocityChange);
         }
     }
 }

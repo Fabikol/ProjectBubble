@@ -1269,6 +1269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d9fa691d4664fa48f4cb4f6f66533e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KnockbackForce: 15
 --- !u!135 &869681204085149273
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1355,7 +1356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 571688328726886800}
-  acceleration: 20
+  acceleration: 40
   maxSpeed: 12
   jumpForce: 10
   dashForce: 20
