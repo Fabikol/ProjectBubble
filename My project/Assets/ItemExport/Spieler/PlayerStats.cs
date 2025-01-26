@@ -22,6 +22,7 @@ public class PlayerStats : MonoBehaviour
     {
         statModifiers["maxSpeed"] = playerControl.maxSpeed;
         statModifiers["Teleport"] = Teleportactive;
+        statModifiers["size"] = playerControl.Size;
     }
 
     public void Update()
@@ -63,6 +64,15 @@ public class PlayerStats : MonoBehaviour
                     FindObjectOfType<AudioManager>().Play("Teleport");
                 }
                 break;
+            
+            case "size":
+                if (playerControl != null)
+                {
+                    Debug.Log("Size Item Chosen");
+                    playerControl.Size = statModifiers[statName];
+                }
+                break;
+                
 
             default:
                 Debug.LogWarning($"Stat {statName} is not mapped in PlayerStats.");
