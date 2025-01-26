@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     void PlayerDeath(PlayerControl player)
     {
+        FindObjectOfType<AudioManager>().Play("Death");
         Debug.Log($"{player.gameObject.name} starb");
         player.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         player.transform.position = respawnPoint.position;

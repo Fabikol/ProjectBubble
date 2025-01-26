@@ -158,6 +158,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            FindObjectOfType<AudioManager>().Play("SplashMedium");
             Vector3 direction = other.gameObject.transform.position - transform.position;
             other.gameObject.GetComponent<Rigidbody>().AddForce(direction.normalized * KnockbackForce, ForceMode.VelocityChange);
         }

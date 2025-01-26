@@ -7717,6 +7717,36 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: ItemPickup
+    clip: {fileID: 8300000, guid: 5cba5918a39756a46a09c5a47485f29d, type: 3}
+    volume: 0.485
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Size
+    clip: {fileID: 8300000, guid: eb7b2ed1cda911f4c809a9f52e1f0e6e, type: 3}
+    volume: 0.485
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SplashMedium
+    clip: {fileID: 8300000, guid: ea44e89168fb1bc46b95897145185ca5, type: 3}
+    volume: 0.485
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Death
+    clip: {fileID: 8300000, guid: e6dd29cd7c2c344418720dfde73d74cf, type: 3}
+    volume: 0.485
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SplashHard
+    clip: {fileID: 8300000, guid: c8c4bb55ae316274c9d6fa54300ccf7c, type: 3}
+    volume: 0.485
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &1651871456 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7640558969779515294, guid: f6b1fe9d9ed2cde479b2198e31a8c891, type: 3}

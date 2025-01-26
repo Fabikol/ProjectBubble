@@ -10,7 +10,7 @@ public class ItemBox : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
          {
 
-
+            FindObjectOfType<AudioManager>().Play("ItemPickup");
             Debug.Log("Player collided with Itembox");
             PlayerInventory inventory = other.GetComponent<PlayerInventory>();
             if (inventory != null)

@@ -44,6 +44,7 @@ public class PlayerStats : MonoBehaviour
             case "maxSpeed":
                 if (playerControl != null)
                 {
+                    FindObjectOfType<AudioManager>().Play("Size");
                     playerControl.maxSpeed = statModifiers[statName];
                     Debug.Log($"maxSpeed changed to {playerControl.maxSpeed}");
                 }
