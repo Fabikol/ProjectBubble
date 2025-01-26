@@ -15,4 +15,4 @@ MonoBehaviour:
   name: size
   description: Increases Size
   statToModify: size
-  multiplier: 5
+  multiplier: 2.5
