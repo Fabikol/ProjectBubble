@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject player1, player2;
+    public Transform respawnPoint;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {   
@@ -18,5 +19,7 @@ public class GameManager : MonoBehaviour
     void PlayerDeath(PlayerControl player)
     {
         Debug.Log($"{player.gameObject.name} starb");
+        player.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+        player.transform.position = respawnPoint.position;
     }
 }
