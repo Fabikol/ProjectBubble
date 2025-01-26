@@ -25,7 +25,7 @@ public class CameraControl : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void LateUpdate()
     {
         UpdateCameraPosition();
     }
